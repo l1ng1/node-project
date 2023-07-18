@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Nunito+Sans:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body{
+    background-color: rgba(255, 98, 0, 0.08);
+}
+
+.cont{
+    width: 20%;
+    margin: 0 auto;
+}
+
+.reg,.log{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+}
+.reg input,.log input{
+    margin-bottom: 20px;
+    border: 1px black solid;
+    padding: 2px 4px;
+    border-radius: 10px;
+    background-color: rgba(127, 255, 212, 0.604);
+    font-size: 30px;
+}
+#register,#login{
+    background-color: rgba(101, 241, 86, 0.814);
+    padding: 5px 10px;
+}
+
+.menu,.you,.player{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+}
+.you{
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+    background-color: rgba(255, 0, 0, 0.067);
+    padding: 20px 0px;
+}
+
+.player{
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+    background-color: rgba(0, 64, 255, 0.067);
+    padding: 10px 0px;
+}
+
+.cont2{
+    width: 45%;
+    margin: 0 auto;
+}
+
+.ya{
+    background-color: rgba(2, 255, 15, 0.475);
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+.no{
+    background-color: rgba(255, 2, 2, 0.475);
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
