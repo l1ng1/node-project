@@ -1,0 +1,8 @@
+{
+    "database": {
+        "file": "./data.sql3"
+    },
+    "server": {
+        "port": 3000
+    }
+}

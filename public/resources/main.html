@@ -1,0 +1,48 @@
+Петр!!!!!!!!!!!!!
+1) страница main - ГЛАВНАЯ страница где есть две кнопки вход в имеющийся аккаунт или регистрация
+    Снизу этих кнопок можешь на странице отобразить инфу про игру и тд,
+    а можешь совсем пропустить и как в гугл можешь просто посередине сделать чтобы вышли две кнопки
+
+2) Или можешь сделать чтобы запросы шли от дива с формой и чтобы только форму с кнопками было видно а снизу сама игра
+   и потом при нажатии на вход или регистрация переходили на соответ страницы 
+   а потом как вошли заново на main кидало при этом див с кнопками уже не активен
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <br />
+    <br />
+    <button><a href="/login">Вход</a></button>
+    <button><a href="/register">Регистрация</a></button>
+    <br />
+    <div class="cont2">
+        <div class="menu"><p>%</p><p>Nikname</p><p>Wins</p><p>challenge</p></div>
+        <div class="you">
+            <p>1</p>
+            <p>Petya</p>
+            <p>34</p>
+            <button class="no">X</button>
+        </div>
+        <div class="others">
+            <div class="player">
+                <p>2</p>
+                <p>Amir</p>
+                <p>19</p>
+                <button class="ya">✔</button>
+            </div>
+            <div class="player">
+                <p>3</p>
+                <p>Roma</p>
+                <p>17</p>
+                <button class="ya">✔</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
