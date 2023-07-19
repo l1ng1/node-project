@@ -11,6 +11,7 @@
     background-color: rgba(221, 221, 207, 0.258);
     display: flex;
     justify-content: space-around;
+    position: relative;
 }
 
 .userInfo{
@@ -24,8 +25,25 @@
 
 .modeleWProfile{
     display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.364);
 }
 
+
+.modeleWProfile form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    width: 10%;
+    margin: 0 auto;
+}
+
+.modeleWProfile form input{
+    font-size: 25px;
+}
 
 .mainInfo{
     display: flex;
