@@ -12,9 +12,15 @@
         <div class="userInfo">
             <div class="mainInfo">
                 <img class="profilePic" src="#" alt="">
-                <p>%userName%</p>
+                <p id="userName">%userName%</p>
             </div>
             <div class="secondInfo">
+
+
+                <div class="last-first-name">
+                    <div class="name"><p>Имя:</p></div>
+                    <div class="lastName"><p>Фамилия:</p></div>
+                </div>
 
                 <div class="status">
                     <p>Статус:</p>
@@ -34,13 +40,27 @@
             <button id="redactProfile">Редактировать</button>
         </div>
 
-        <div class="posts">
+
+        <div class="postSide">
             <div class="createPost">
+                <p>Ваши посты ↓</p>
                 <button id="createNewPost">Создать новый пост</button>
             </div>
             <div class="posts">
-                
+
             </div>
+        </div>
+
+        <div class="modeleWProfile">
+            <form action="" method="patch">
+                <input type="file">
+                <input type="text" placeholder="Имя">
+                <input type="text" placeholder="Фамилия">
+                <input type="text" placeholder="Статус">
+                <input type="text" placeholder="Дата рождения">
+                <input type="text" name placeholder="Место проживания">
+                <input id="updateProfile" type="submit" value="Обновить">
+            </form>
         </div>
 
     </div>
