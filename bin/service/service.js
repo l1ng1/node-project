@@ -114,6 +114,13 @@ export class Service {
 
         return await this.dataStorage.postsDB.getPostsList(userId);
     }
+
+    updatePosts = async (sid, description, avatar, likes) => {
+        let session = this.sessions[sid];
+        let userId = session.userId;
+
+        return await this.dataStorage.postsDB.updatePost(userId, description, avatar, likes);
+    }
 }
 
 function getRandomInt() {

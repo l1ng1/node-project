@@ -85,7 +85,7 @@
         3) /addUserPost - <b>POST</b> запрос <br />
         отправляешь данные для нового поста <br />
         на фронте обязательно нужно проверить чтобы одно из двух было заполнено <br />
-        const { description, avatar} = req.body; <br />
+        const { description, avatar, likes} = req.body; <br />
         Порядок отправки данных именно такой! <br /> <br />
 
         <div class="example">
@@ -107,6 +107,25 @@
         <div class="example">
             <h2>const response = await fetch('/getUserPosts');</h2> <br />
             будет списком <br />
+        </div>
+
+        5) updateUserPost - <b>POST</b> запрос для обновления данных в посте баззы данных <br />
+        Нужен для увеличения лайков, также можно использовать для редактирования данных, никакой из перечисленных 
+        не обязательно быть запоненым, поэтому нужно будет проверка  с фронта если что то апдейтится
+
+        <div class="example">
+            <h3>
+                const response = await fetch('/addUserPost', { <br />
+                    method: 'POST', <br />
+                    headers: { <br />
+                        'Content-Type': 'application/json' <br />
+                    }, <br />
+                    <h3>Здесь это и пишется description, avatar, likes <br />
+                        и сделай проверку, если нет имени оно обязательно должног быть, оно у меня в базеД обязательно <br />
+                    </h3> <br />
+                    body: JSON.stringify({ description, avatar, likes }) <br />
+                }); <br />
+             </h3>
         </div>
 
     </div>

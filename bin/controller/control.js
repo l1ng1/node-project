@@ -168,6 +168,21 @@ export class Controller {
             res.status(500).json({ message: 'Не удалось получить данные.' });
         }
     }
+
+    updateUserPost = async (req, res) => {
+        const sid = this.getSid(req);
+        const { description, avatar, likes } = req.body;
+
+        try {
+
+            await this.service.updatePosts(sid, description, avatar, likes);
+
+            res.status(200).json({ message: 'Данные успешно отправлены.' });
+        } catch (error) {
+            console.error('Ошибка получении данных профиля пользователя:', error);
+            res.status(500).json({ message: 'Не удалось получить данные.' });
+        }
+    }
 }
 
 function getCookies(cookieString) {

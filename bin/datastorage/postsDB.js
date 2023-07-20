@@ -29,7 +29,8 @@ export class PostsDB {
             id              integer primary key autoincrement,
             user_id         integer not null,
             description     text,
-            avatar          text
+            avatar          text,
+            likes           integer
         )`;
         try {
             await this.db.exec(query);
@@ -38,20 +39,20 @@ export class PostsDB {
         }
     }
 
-    async addPost( userId, description='', avatar='') {
+    async addPost( userId, description='', avatar='', likes = 0) {
         let query = `INSERT INTO Posts (user_id, description, avatar) VALUES (?, ?, ?)`;
         try {
-            const result = await this.db.run(query,  userId, description, avatar);
+            const result = await this.db.run(query,  userId, description, avatar, likes);
         } catch (error) {
             console.error("Ошибка при добавлении пользователя:", error);
             throw error;
         }
     }
 
-    async updateProfile(userId, description='', avatar = '') {
+    async updatePost(userId, description='', avatar = '', likes = '') {
         try {
-            let query = `UPDATE Posts SET description = ?, avatar = ?  WHERE user_id = ?`;
-            await db.run(query, description, avatar, userId);
+            let query = `UPDATE Posts SET description = ?, avatar = ?, likes = ''  WHERE user_id = ?`;
+            await db.run(query, description, avatar, likes, userId);
 
             console.log('Данные успешно обновлены.');
         } catch (error) {
