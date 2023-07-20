@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .example {
+            width: 1000px;
+            margin: 20px auto;
+            background: #a3c5f2;
+            padding: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cont">
+        1)'/updateProfile' = url для создания-апдейта профиля  <br />
+        используй его для нажатия кнопки и отправления через js запроса пост <br />
+        на кнопку или форму не нужно применять метод <b>POST</b> <br />
+
+        const { firstName, lastName, avatar, state, birthDate, address } = req.body; <br />
+        в таком порядке нужно отправить данные <br /> <br />
+
+        <div class="example">
+
+            <form id="myForm">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+        
+                <button type="submit">Отправить</button>
+            </form> <br /> <br />
+
+            <h4>
+                document.getElementById('myForm').addEventListener('submit', async (event) => <br />
+                    event.preventDefault();<br /><br />
+                    const formData = new FormData(event.target);<br />
+                    const username = formData.get('username');<br />
+                    const password = formData.get('password');<br /><br />
+        
+                    try {<br />
+                        const response = await fetch('/updateUser', {<br />
+                            method: 'POST', <br />
+                            headers: { <br />
+                                'Content-Type': 'application/json' <br />
+                            }, <br />
+                            <h3>Здесь это и пишется firstName, lastName, avatar, state, birthDate, address
+                                и сделай проверку, если нет имени оно обязательно должног быть, оно у меня в базеД обязательно
+                            </h3>
+                            body: JSON.stringify({ username, password }) <br />
+                        }); <br /> <br />
+        
+                        if (response.ok) { <br />
+                            console.log('Данные успешно обновлены.'); <br />
+                        } else { <br />
+                            console.error('Не удалось обновить данные.'); <br />
+                        } <br />
+                    } catch (error) { <br />
+                        console.error('Ошибка при обновлении данных:', error); <br />
+                    } <br />
+                }); <br /> <br />
+            </h4>
+        </div>
+
+        2) /getUserProfile' <b>GET</b> запрос для получения данных профиля юзера с баззы данных <br /> <br />
+
+        <div class="example">
+            <h2>const response = await fetch('/getUserProfile');</h2> <br />
+
+            я отправляю вместе с response статус тоже, можешь делать проверку полученной даты через <br />
+            response.ok <br />
+        </div>
+
+        3) /addUserPost - <b>POST</b> запрос <br />
+        отправляешь данные для нового поста <br />
+        на фронте обязательно нужно проверить чтобы одно из двух было заполнено <br />
+        const { description, avatar} = req.body; <br />
+        Порядок отправки данных именно такой! <br /> <br />
+
+        <div class="example">
+         <h3>
+            const response = await fetch('/addUserPost', { <br />
+                method: 'POST', <br />
+                headers: { <br />
+                    'Content-Type': 'application/json' <br />
+                }, <br />
+                <h3>Здесь это и пишется firstName, lastName, avatar, state, birthDate, address <br />
+                    и сделай проверку, если нет имени оно обязательно должног быть, оно у меня в базеД обязательно <br />
+                </h3> <br />
+                body: JSON.stringify({description, avatar }) <br />
+            }); <br />
+         </h3>
+        </div>
+
+        4) /getUserPosts <b>GET</b> запрос для получения данных профиля юзера с баззы данных <br />
+        <div class="example">
+            <h2>const response = await fetch('/getUserPosts');</h2> <br />
+            будет списком <br />
+        </div>
+
+    </div>
+    
+</body>
+</html>

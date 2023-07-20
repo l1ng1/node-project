@@ -42,5 +42,13 @@ export class Router {
 
         this.app.get("/logout",    this.controller.logOutUser,
                                     this.controller.redirToGeneralPage);
+        
+        this.app.post("/updateProfile",    await this.controller.updateProfile);
+
+        this.app.get("/getUserProfile",    await this.controller.getUserProfile);
+
+        this.app.get("/addUserPost",    await this.controller.addUserPost);
+
+        this.app.get("/getUserPosts",    await this.controller.getUserPosts);
     }
 }
