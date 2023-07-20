@@ -50,5 +50,7 @@ export class Router {
         this.app.get("/addUserPost",    await this.controller.addUserPost);
 
         this.app.get("/getUserPosts",    await this.controller.getUserPosts);
+
+        this.app.post("/updateUserPost",    await this.controller.updateUserPost);
     }
 }
