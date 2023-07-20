@@ -31,12 +31,12 @@ export function saveNewProfileInfo(){
 
 
 
-export async function getProfile(userName){
+export async function getProfile(){
 
 }
 
 
-export async function getPosts(userName){
+export async function getPosts(){
     
 }
 

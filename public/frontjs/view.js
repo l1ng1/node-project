@@ -56,6 +56,21 @@ function loadUserInfo(userInfo){
 
 
 function loadUserPosts(userPosts){
+  let mainDiv = document.querySelector('.posts');
+  for(let x of userPosts){
+    let box = document.createElement('div');
+    box.classList.add('post');
+    let txt = document.createElement('p');
+    let img = document.createElement('img');
+    if(x.text) txt.textContent = x.text;
+    if(x.src) img.setAttribute('src',x.src); 
+    box.append(txt);
+    box.append(img);
+9}
+
+
+  
+  
     
 }
 
