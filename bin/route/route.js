@@ -15,7 +15,7 @@ export class Router {
             console.log("Server started at", this.config.port);
         });
         await this.createRoutes();
-        this.app.use(express.static(path.join(process.cwd(), 'public')));
+        this.app.use(express.static(path.join(process.cwd(), '/public')));
     }
 
     stop() {
