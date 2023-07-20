@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles.js/user.css">
+    <title>chatik ot Petyi & Gulzhan</title>
+</head>
+<body>
+    <div class="cont3">
+
+        <div class="userInfo">
+            <div class="mainInfo">
+                <img class="profilePic" src="#" alt="">
+                <p id="userName">%userName%</p>
+            </div>
+            <div class="secondInfo">
+
+
+                <div class="last-first-name">
+                    <div class="name"><p>Имя:</p></div>
+                    <div class="lastName"><p>Фамилия:</p></div>
+                </div>
+
+                <div class="status">
+                    <p>Статус:</p>
+                    
+                </div>
+
+                <div class="DoB">
+                    <p>Дата рождения:</p>
+                    
+                </div>
+
+                <div class="PoL">
+                    <p>Место проживания:</p>
+                    
+                </div>
+            </div>
+            <button id="redactProfile">Редактировать</button>
+        </div>
+
+
+        <div class="postSide">
+            <div class="createPost">
+                <p>Ваши посты ↓</p>
+                <button id="createNewPost">Создать новый пост</button>
+            </div>
+            <div class="posts">
+
+            </div>
+        </div>
+
+        <div class="modeleWProfile">
+            <form action="" method="patch">
+                <input type="file">
+                <input type="text" placeholder="Имя">
+                <input type="text" placeholder="Фамилия">
+                <input type="text" placeholder="Статус">
+                <input type="text" placeholder="Дата рождения">
+                <input type="text" name placeholder="Место проживания">
+                <input id="updateProfile" type="submit" value="Обновить">
+            </form>
+        </div>
+
+    </div>
+    <script defer src="/frontjs/view.js" type="module"></script>
+</body>
+</html>

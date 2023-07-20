@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/public/styles.js/main.css">
     <title>Крестики-нолики</title>
 </head>
 <body>
     <div class="cont">
         <form class="reg" action="/confirmed" method="post">
-            <label for="nikname">Как вас называть?</label>
-            <input type="text" name="nikname">
+            <label for="nikname">Как ваc зовут?</label>
+            <input type="text" name="userName">
             <label for="password">Придумайте пароль</label>
-            <input type="text" name="password">
+            <input type="password" name="password">
             <label for="repeat_pass">Повторите пароль</label>
-            <input type="text" name="repeat_pass">
+            <input type="password" name="repeat_pass">
             <div class="captcha">
                 <img src="%src%" alt="">
                 <input type="text" name="captcha" placeholder="введите текст с капчи">
