@@ -14,7 +14,7 @@ export class Controller {
         let sid = this.getSid(req);
         if (sid && this.service.isLogged(sid)) {
             const userData = await this.service.getUserData(sid);
-            const fname = path.join(this.dir, 'public', 'resources', 'game.html');
+            const fname = path.join(this.dir, 'public', 'resources', 'user.html');
             fs.readFile(fname, 'utf-8', (err, data) => {
                 if (data) {
                     const html = data.replace('%userName%', userData.user_name);
