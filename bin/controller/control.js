@@ -35,6 +35,7 @@ export class Controller {
 
     checkSid = (req, res, step) => {
         let sid = this.getSid(req);
+        console.log(sid);
         if (!sid) {
             sid = this.service.newSid(this.sidAge);
             res.setHeader('Set-Cookie', `sid=${sid}; Max-Age=${this.sidAge}; HttpOnly`);
@@ -101,7 +102,7 @@ export class Controller {
 
     checkCaptcha = async (req, res, next) => {
         const sid = this.getSid(req);
-        const userName = req.body['nikname'];  // input name='login' в форме регистрации
+        const userName = req.body['userName'];  // input name='login' в форме регистрации
         const password = req.body['password'];
         const captcha = req.body['captcha'];
         const isOk = await this.service.checkCaptcha(sid, userName, password, captcha);
@@ -109,6 +110,62 @@ export class Controller {
             next();
         } else {
             res.status(400).send('Bad registration data');
+        }
+    }
+
+    updateProfile = async (req, res) => {
+        const sid = this.getSid(req);
+        const { firstName, lastName, avatar, state, birthDate, address } = req.body;
+        
+        try {
+            await this.service.updateProfile(sid, firstName, lastName, avatar, state, birthDate, address );
+
+            res.status(200).json({ message: 'Данные успешно отправлены.' });
+        } catch (error) {
+            console.error('Ошибка получении данных профиля пользователя:', error);
+            res.status(500).json({ message: 'Не удалось получить данные.' });
+        }
+    }
+
+    getUserProfile = async (req, res) => {
+        const sid = this.getSid(req);
+    
+        try {
+            const userProfile = await this.service.getUserProfile(sid);
+            res.json(userProfile);
+
+            res.status(200).json({ message: 'Данные успешно отправлены.' });
+        } catch (error) {
+            console.error('Ошибка получении данных профиля пользователя:', error);
+            res.status(500).json({ message: 'Не удалось получить данные.' });
+        }
+    }
+
+    addUserPost = async (req, res) => {
+        const sid = this.getSid(req);
+        const { description, avatar} = req.body;
+        
+        try {
+            await this.service.addPost(sid, description, avatar );
+
+            res.status(200).json({ message: 'Данные успешно отправлены.' });
+        } catch (error) {
+            console.error('Ошибка получении данных профиля пользователя:', error);
+            res.status(500).json({ message: 'Не удалось получить данные.' });
+        }
+    }
+
+    getUserPosts = async (req, res) => {
+        const sid = this.getSid(req);
+    
+        try {
+            const userPosts = await this.service.getPosts(sid);
+            res.json(userPosts);
+
+            res.status(200).json({ message: 'Данные успешно отправлены.' });
+        } catch (error) {
+            console.error('Ошибка получении данных профиля пользователя:', error);
+            res.status(500).json({ message: 'Не удалось получить данные.' });
         }
     }
 }

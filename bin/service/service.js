@@ -1,7 +1,3 @@
-// Виталий, попробуйте залогиниться и выйти из учетки))))))))))
-// Все работает))))))))))
-
-
 import { SessionService } from './session.js';
 import { CaptchaService  } from './captcha.js';
 import path from "path";
@@ -13,7 +9,6 @@ export class Service {
     constructor(dataStorage) {
         this.dataStorage = dataStorage;
         this.captcha = new CaptchaService(this.session);
-        // this.confirm = new ConfirmService(this.session);
     }
 
     isLogged = (sid) => {
@@ -23,7 +18,7 @@ export class Service {
 
     getUserData = async (sid) => {
         let session = this.sessions[sid];
-        let data = await this.dataStorage.getUser(session.userId);
+        let data = await this.dataStorage.usersDB.getUser(session.userId);
         return data;
     }
 
@@ -55,7 +50,7 @@ export class Service {
     checkCaptcha = async (sid, userName, password, captcha) => {
         let session = this.sessions[sid]
         if (session.captcha.value === captcha) {
-            session.userId = await this.dataStorage.addUser(userName, password);
+            session.userId = await this.dataStorage.usersDB.addUser(userName, password);
             this.captcha.remove(session.captcha.file);
             session.captcha.value = null;
             return true;
@@ -80,7 +75,7 @@ export class Service {
 
     loginUser = async (sid , userName, password) => {
         let session = this.sessions[sid];
-        session.userId = await this.dataStorage.getUserId(userName, password);
+        session.userId = await this.dataStorage.usersDB.getUserId(userName, password);
         if(session.userId) return true;
         return false;
     }
@@ -88,6 +83,36 @@ export class Service {
     logOut(sid) {
         let session = this.sessions[sid];
         session.userId = null;
+    }
+
+    updateProfile = async (sid, firstName, lastName, avatar, state, birthDate, address) => {
+        let session = this.sessions[sid];
+        let userId = session.userId;
+
+        const userProfile = await this.dataStorage.profilesDB.getProfile(userId);
+        if(userProfile) await this.dataStorage.profilesDB.updateProfile(userId, firstName, lastName, avatar, state, birthDate, address);
+        else await this.dataStorage.profilesDB.addProfile(userId, firstName, lastName, avatar, state, birthDate, address);
+    }
+
+    getUserProfile = async (sid) => {
+        let session = this.sessions[sid];
+        let userId = session.userId;
+
+        return await this.dataStorage.profilesDB.getProfile(userId);
+    }
+
+    addPost = async(sid, description, avatar) => {
+        let session = this.sessions[sid];
+        let userId = session.userId;
+
+        return await this.dataStorage.postsDB.addPost(userId, description, avatar);
+    }
+
+    getPosts = async (sid) => {
+        let session = this.sessions[sid];
+        let userId = session.userId;
+
+        return await this.dataStorage.postsDB.getPostsList(userId);
     }
 }
 
