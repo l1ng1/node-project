@@ -5,6 +5,8 @@
     font-family: 'Nunito', sans-serif;
 }
 
+
+
 .cont3{
     width: 80%;
     margin: 0 auto;
@@ -23,25 +25,26 @@
     font-size: 24px;
 }
 
-.modeleWProfile{
+.modeleWProfile,.modelWPost{
     display: none;
     position: absolute;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.364);
+    height: 100%;
 }
 
 
-.modeleWProfile form{
+.modeleWProfile form,.modelWPost form{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    
+    height: 100%;
     width: 10%;
     margin: 0 auto;
 }
 
-.modeleWProfile form input{
+.modeleWProfile form input,.modelWPost form input{
     font-size: 25px;
 }
 
@@ -105,4 +108,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+
+.active{
+    display: block;
 }

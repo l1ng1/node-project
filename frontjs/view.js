@@ -3,7 +3,8 @@ import * as control from "./controller.js";
 
 const redactProfileBtn = document.getElementById('redactProfile');
 const saveProfileInfo = document.getElementById('updateProfile');
-
+const createNewPost = document.getElementById('createNewPost');
+const createnewPostBtn = document.getElementById('createNewPostBtn');
 
 window.onload = () => {
     let username = document.getElementById('userName');
@@ -16,11 +17,13 @@ window.onload = () => {
 }
 
 
-saveProfileInfo.addEventListener('click',control.saveNewProfileInfo());
-saveProfileInfo.addEventListener('click',control.closeProfileRedactor());
-redactProfileBtn.onclick = control.openRedactprofile();
+saveProfileInfo.addEventListener('click',control.saveNewProfileInfo,false);
+saveProfileInfo.addEventListener('click',control.closeProfileRedactor,false);
+redactProfileBtn.addEventListener('click', control.openRedactprofile,false);
 
-
+createNewPost.addEventListener('click',control.openPostW,false);
+createnewPostBtn.addEventListener('click',control.saveNewPost,false);
+createnewPostBtn.addEventListener('click',control.closePostWin,false);
 
 
 
