@@ -6,7 +6,7 @@ const saveProfileInfo = document.getElementById('updateProfile');
 const createNewPost = document.getElementById('createNewPost');
 const createnewPostBtn = document.getElementById('createNewPostBtn');
 
-const profileForm = document.getElementById('profileForm');
+const profileForm = document.getElementById('my-profile');
 
 profileForm.addEventListener('submit',control.saveNewProfileInfo);
 

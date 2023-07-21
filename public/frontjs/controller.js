@@ -28,7 +28,7 @@ export function closePostWin(event){
 }
 
 
-export function saveNewProfileInfo(ev){
+export async function saveNewProfileInfo(ev){
         const fromData = new FormData(ev.target);
         let firstname = formData.get('firstname');
         let lastname = formData.get('lastname');
@@ -37,7 +37,7 @@ export function saveNewProfileInfo(ev){
         let PoL = formData.get('address');
         let avatar = formData.get('avatar');
 
-        model.fetchProfilePost(firstname,lastname,avatar,status,BoD,PoL);
+        await model.fetchProfilePost(firstname,lastname,avatar,status,BoD,PoL);
 
 
     }
