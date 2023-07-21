@@ -70,7 +70,7 @@ function loadUserPosts(userPosts){
     if(x.src) img.setAttribute('src',x.src); 
     box.append(txt);
     box.append(img);
-9}
+}
 
 
   
@@ -78,4 +78,11 @@ function loadUserPosts(userPosts){
     
 }
 
+// let a = await fetch("/getUserProfile")
+//   .then(response => {
+//      response.json();
+//   })
+  
+
+// console.log(a);
 

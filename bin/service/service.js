@@ -76,6 +76,7 @@ export class Service {
     loginUser = async (sid , userName, password) => {
         let session = this.sessions[sid];
         session.userId = await this.dataStorage.usersDB.getUserId(userName, password);
+        console.log(session);
         if(session.userId) return true;
         return false;
     }
