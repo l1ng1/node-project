@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/user.css">
+    <link rel="stylesheet" href="styles/user.css">
     <title>chatik ot Petyi & Gulzhan</title>
 </head>
 <body>
-    <h1> ПЕТР, твой фронт будет  только в папке PUBLIC, Снаружи папки этой пишется уже бэкенд!)))</h1>
-    <h2> Пожалуйста перенеси свой js в папку /public, Я если что для твоего скрипта создала папку scripts</h2>
-    
     <div class="cont3">
         <div class="userInfo">
             <div class="mainInfo">
                 <img class="profilePic" src="#" alt="">
-                <p id="userName">Добро Пожаловать, %userName% !!!</p>
+                <p id="userName">%userName% !!!</p>
             <button><a href="/logout">Выйти</a></button>
             </div>
             <div class="secondInfo">
@@ -54,8 +51,8 @@
         </div>
 
         <div class="modeleWProfile">
-            <form action="" method="patch">
-                <input type="file" placeholder="sdfg">
+            <form id="profileForm" action="" method="patch">
+                <input type="text" placeholder="sdfg">
                 <input type="text" placeholder="Имя">
                 <input type="text" placeholder="Фамилия">
                 <input type="text" placeholder="Статус">
@@ -76,6 +73,6 @@
 
 
     </div>
-    <script defer src="/frontjs/view.js" type="module"></script>
+    <script defer src="frontjs/view.js" type="module"></script>
 </body>
 </html>

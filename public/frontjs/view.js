@@ -6,6 +6,10 @@ const saveProfileInfo = document.getElementById('updateProfile');
 const createNewPost = document.getElementById('createNewPost');
 const createnewPostBtn = document.getElementById('createNewPostBtn');
 
+const profileForm = document.getElementById('profileForm');
+
+profileForm.addEventListener('submit',control.saveNewProfileInfo);
+
 window.onload = async () => {
     let username = document.getElementById('userName');
     let userInfo = await control.getProfile();
@@ -17,7 +21,7 @@ window.onload = async () => {
 }
 
 
-saveProfileInfo.addEventListener('click',control.saveNewProfileInfo,false);
+// saveProfileInfo.addEventListener('click',control.saveNewProfileInfo,false);
 saveProfileInfo.addEventListener('click',control.closeProfileRedactor,false);
 redactProfileBtn.addEventListener('click', control.openRedactprofile,false);
 
@@ -74,11 +78,4 @@ function loadUserPosts(userPosts){
     
 }
 
-let a = await fetch("/getUserProfile")
-  .then(response => {
-     response.json();
-  })
-  
-
-console.log(a);
 
