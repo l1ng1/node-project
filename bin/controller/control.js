@@ -72,7 +72,7 @@ export class Controller {
 
     checkloginData = async (req, res, next) => {
         const sid = this.getSid(req);
-        const userName = req.body['nikname'];  
+        const userName = req.body['userName'];  
         const password = req.body['password'];
         let isOk = await this.service.loginUser(sid ,userName, password);
         if (isOk) {
@@ -102,7 +102,7 @@ export class Controller {
 
     checkCaptcha = async (req, res, next) => {
         const sid = this.getSid(req);
-        const userName = req.body['userName'];  // input name='login' в форме регистрации
+        const userName = req.body['userName'];  
         const password = req.body['password'];
         const captcha = req.body['captcha'];
         const isOk = await this.service.checkCaptcha(sid, userName, password, captcha);
@@ -116,7 +116,7 @@ export class Controller {
     updateProfile = async (req, res) => {
         const sid = this.getSid(req);
         const { firstName, lastName, avatar, state, birthDate, address } = req.body;
-        
+        avatar = path.join(this.dir, 'public', 'avatars', avatar); 
         try {
             await this.service.updateProfile(sid, firstName, lastName, avatar, state, birthDate, address );
 
@@ -136,7 +136,7 @@ export class Controller {
 
             res.status(200).json({ message: 'Данные успешно отправлены.' });
         } catch (error) {
-            console.error('Ошибка получении данных профиля пользователя:', error);
+            console.error('Ошибка при получении данных профиля пользователя:', error);
             res.status(500).json({ message: 'Не удалось получить данные.' });
         }
     }

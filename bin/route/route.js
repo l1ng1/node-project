@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+// var bodyParser = require('body-parser')
 import path from 'path';
 
 export class Router {
@@ -7,7 +8,8 @@ export class Router {
         this.controller = controller;
         this.config = config;
         this.app = express();
-        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(express.json());
     }
 
     async start() {
@@ -47,7 +49,7 @@ export class Router {
 
         this.app.get("/getUserProfile",    await this.controller.getUserProfile);
 
-        this.app.get("/addUserPost",    await this.controller.addUserPost);
+        this.app.post("/addUserPost",    await this.controller.addUserPost);
 
         this.app.get("/getUserPosts",    await this.controller.getUserPosts);
 

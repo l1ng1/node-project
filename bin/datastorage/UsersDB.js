@@ -41,8 +41,8 @@ export class UsersDB {
         let query = `INSERT INTO Users (user_name, password) VALUES (?, ?)`;
         try {
             const result = await this.db.run(query, userName, password);
-            const user_id = result.lastID;
-            return user_id;
+            console.log(result.lastID);
+            return result.lastID;
         } catch (error) {
             console.error("Ошибка при добавлении пользователя:", error);
             throw error;
@@ -63,6 +63,7 @@ export class UsersDB {
         let query = `SELECT * FROM Users WHERE user_name=? AND password=?`;
         try {
             const data = await this.db.get(query, userName, password);
+            console.log(data);
             return data.id;
         } catch (error) {
             console.error("Ошибка при получении пользователя:", error);

@@ -26,6 +26,7 @@ export function closePostWin(event){
 
 export function saveNewProfileInfo(){
     
+    
 }
 
 

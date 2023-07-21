@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/user.css">
+    <link rel="stylesheet" href="styles/user.css">
     <title>chatik ot Petyi & Gulzhan</title>
 </head>
 <body>
-    <h1> ПЕТР, твой фронт будет  только в папке PUBLIC, Снаружи папки этой пишется уже бэкенд!)))</h1>
-    <h2> Пожалуйста перенеси свой js в папку /public, Я если что для твоего скрипта создала папку scripts</h2>
     
     <div class="cont3">
         <div class="userInfo">
@@ -54,14 +52,14 @@
         </div>
 
         <div class="modeleWProfile">
-            <form action="" method="patch">
-                <input type="file" placeholder="sdfg">
-                <input type="text" placeholder="Имя">
-                <input type="text" placeholder="Фамилия">
-                <input type="text" placeholder="Статус">
-                <input type="text" placeholder="Дата рождения">
-                <input type="text" name placeholder="Место проживания">
-                <input id="updateProfile" type="submit" value="Обновить">
+            <form id="my-profile" action="" method="">
+                <input type="text" name="avatar" placeholder="sdfg">
+                <input type="text" name="firstname" placeholder="Имя">
+                <input type="text" name="lastname" placeholder="Фамилия">
+                <input type="text" name="state" placeholder="Статус">
+                <input type="text" name="birthdate" placeholder="Дата рождения">
+                <input type="text" name="address" placeholder="Место проживания">
+                <input id="updateProfile" type="submit" id="profile" value="Обновить">
             </form>
         </div>
 
@@ -76,6 +74,7 @@
 
 
     </div>
-    <script defer src="/frontjs/view.js" type="module"></script>
+    <!-- <script defer src="/frontjs/view.js" type="module"></script> -->
+    <script defer src="resources/example.js" type="module"></script>
 </body>
 </html>
