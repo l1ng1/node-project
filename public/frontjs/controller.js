@@ -39,6 +39,7 @@ export async function getProfile(){
 
 export async function getPosts(){
     
+
 }
 
 
