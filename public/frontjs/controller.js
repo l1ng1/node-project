@@ -15,8 +15,8 @@ export function openPostW(){
 }
 
 
-export function closeProfileRedactor(event){ 
-    event.preventDefault();
+export function closeProfileRedactor(){ 
+   
     let a = document.querySelector('.modeleWProfile');
     a.classList.remove('active');
 }
@@ -28,20 +28,66 @@ export function closePostWin(event){
 }
 
 
-export async function saveNewProfileInfo(ev){
-        const fromData = new FormData(ev.target);
-        let firstname = formData.get('firstname');
-        let lastname = formData.get('lastname');
-        let status = formData.get('state');
-        let BoD = formData.get('birthdate');
-        let PoL = formData.get('address');
-        let avatar = formData.get('avatar');
+export async function saveNewProfileInfo(ev){ 
+        ev.preventDefault();
+        const formData = new FormData(ev.target);
+        const avatar = formData.get('avatar');
+        const firstName = formData.get('firstname');
+        const lastName = formData.get('lastname');
+        const state = formData.get('state');
+        const birthDate = formData.get('birthdate');
+        const address = formData.get('address');
 
-        await model.fetchProfilePost(firstname,lastname,avatar,status,BoD,PoL);
+        console.log(JSON.stringify({ firstName, lastName, avatar, state, birthDate, address }))
+
+        await model.fetchProfilePost(firstName,lastName,avatar,state,birthDate,address);
+
+        //save for user
 
 
+        let nameDiv =document.querySelector('.name');
+        let nameP = document.createElement('p');
+        nameP.textContent = firstName;
+        nameDiv.append(nameP);
+    
+        let lastnameDiv =document.querySelector('.lastName');
+        let lastnameP = document.createElement('p');
+        lastnameP.textContent = lastName;
+        lastnameDiv.append(lastnameP);
+    
+        let statusDiv =document.querySelector('.status');
+        let statusP = document.createElement('p');
+        statusP.textContent = state;
+        statusDiv.append(statusP);
+    
+        let dateOfBrDiv =document.querySelector('.DoB');
+        let dateP = document.createElement('p');
+        dateP.textContent = birthDate;
+        dateOfBrDiv.append(dateP);
+    
+        let PlaceOfLvDiv =document.querySelector('.PoL');
+        let placeP = document.createElement('p');
+        placeP.textContent = address;
+        PlaceOfLvDiv.append(placeP);
+
+
+///
+
+        closeProfileRedactor();
     }
 
+
+export async function addNewPost(ev){
+    ev.preventDefault();
+
+    let formData =new FormData(ev.target);
+    let description = formData.get('text');
+    let avatar = formData.get('img');
+
+    await model.fetchPostsPost(description,avatar);
+
+
+}
 
 
 

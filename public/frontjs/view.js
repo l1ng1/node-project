@@ -10,6 +10,65 @@ const profileForm = document.getElementById('my-profile');
 
 profileForm.addEventListener('submit',control.saveNewProfileInfo);
 
+
+
+
+
+
+
+
+
+
+
+
+
+// document.getElementById('my-profile').addEventListener('submit', async (event) =>  {
+//     event.preventDefault();
+
+//     const formData = new FormData(event.target);
+//     const avatar = formData.get('avatar');
+//     const firstName = formData.get('firstname');
+//     const lastName = formData.get('lastname');
+//     const state = formData.get('state');
+//     const birthDate = formData.get('birthdate');
+//     const address = formData.get('address');
+
+//     console.log(JSON.stringify({ firstName, lastName, avatar, state, birthDate, address }))
+//     // console.log(formData)
+
+//     try {
+//         let response = await fetch('/updateProfile', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ firstName, lastName, avatar, state, birthDate, address })
+//         });
+    
+//         if (response.ok) {
+//             console.log('Data updated successfully.');
+//         } else {
+//             console.error('Failed to update data.');
+//         }
+//     } catch (error) {
+//         console.error('Error during data update:', error);
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+///
+
 window.onload = async () => {
     let username = document.getElementById('userName');
     let userInfo = await control.getProfile();
@@ -22,7 +81,7 @@ window.onload = async () => {
 
 
 // saveProfileInfo.addEventListener('click',control.saveNewProfileInfo,false);
-saveProfileInfo.addEventListener('click',control.closeProfileRedactor,false);
+// saveProfileInfo.addEventListener('click',control.closeProfileRedactor,false);
 redactProfileBtn.addEventListener('click', control.openRedactprofile,false);
 
 createNewPost.addEventListener('click',control.openPostW,false);

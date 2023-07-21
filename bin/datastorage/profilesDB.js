@@ -55,7 +55,7 @@ export class ProfilesDB {
     async updateProfile(userId, firstName='', lastName = '', avatar = '', state = '', birthDate = '', address = '') {
         try {
             let query = `UPDATE Profiles SET first_name = ?, last_name = ?, avatar = ? , state =?, birth_date = ?, address = ?  WHERE user_id = ?`;
-            await db.run(query, firstName, lastName, avatar, state, birthDate, address,  userId);
+            await this.db.run(query, firstName, lastName, avatar, state, birthDate, address,  userId);
 
             console.log('Данные успешно обновлены.');
         } catch (error) {

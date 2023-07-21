@@ -115,8 +115,14 @@ export class Controller {
 
     updateProfile = async (req, res) => {
         const sid = this.getSid(req);
-        const { firstName, lastName, avatar, state, birthDate, address } = req.body;
-        avatar = path.join(this.dir, 'public', 'avatars', avatar); 
+        console.log(req.body);
+        const firstName = req.body['firstName'];  
+        const lastName = req.body['lastName'];
+        const avatar = req.body['avatar'];
+        const state = req.body['state'];
+        const birthDate = req.body['birthDate'];
+        const address = req.body['address'];
+
         try {
             await this.service.updateProfile(sid, firstName, lastName, avatar, state, birthDate, address );
 
